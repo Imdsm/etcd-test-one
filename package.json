@@ -1,0 +1,15 @@
+{
+  "name": "etcd-test-one",
+  "version": "1.0.0",
+  "description": "etcd-test-one",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imdsm/etcd-test-one"
+  },
+  "author": "Adam K Dean <adamkdean@googlemail.com> (http://www.adamkdean.co.uk/)",
+  "homepage": "https://github.com/imdsm/etcd-test-one",
+  "dependencies": {
+    "node-etcd": "^3.0.2"
+  }
+}
