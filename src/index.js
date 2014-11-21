@@ -3,6 +3,7 @@ var http = require('http'),
     etcd = new Etcd('172.17.42.1', '4001');
 
 http.createServer(function(req, res) {
+    console.log('req.url:', req.url);
     var random = Math.floor((Math.random() * 1000) + 1);
     console.log('random is:', random);
     etcd.set('test-signal', random);
