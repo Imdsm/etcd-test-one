@@ -6,4 +6,4 @@ http.createServer(function(req, res) {
     etcd.set('test-signal', random);
     res.writeHead(200, {'Content-Type': 'text/plain' });
     res.end('Setting signal to random number: ' + random);
-}).listen(80);
+}).listen(process.env.PORT || 8000);
