@@ -3,11 +3,13 @@ var http = require('http'),
     etcd = new Etcd('172.17.42.1', '4001');
 
 http.createServer(function(req, res) {
-    console.log('req.url:', req.url);
-    var random = Math.floor((Math.random() * 1000) + 1);
-    console.log('random is:', random);
-    etcd.set('test-signal', random);
-    console.log('setting test-signal to', random);
-    res.writeHead(200, {'Content-Type': 'text/plain' });
-    res.end('Setting signal to random number: ' + random);
+    if (req.url === '/') {
+        var random = Math.floor((Math.random() * 1000) + 1);
+        etcd.set('test-signal', random);
+        res.writeHead(200, {'Content-Type': 'text/plain' });
+        res.end('Setting signal to random number: ' + random);
+    } else {
+        res.writeHead(404, {'Content-Type': 'text/plain' });
+        res.end('Not found');
+    }
 }).listen(process.env.PORT || 8000);
