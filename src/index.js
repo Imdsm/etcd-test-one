@@ -4,7 +4,9 @@ var http = require('http'),
 
 http.createServer(function(req, res) {
     var random = Math.floor((Math.random() * 1000) + 1);
+    console.log('random is:', random);
     etcd.set('test-signal', random);
+    console.log('setting test-signal to', random);
     res.writeHead(200, {'Content-Type': 'text/plain' });
     res.end('Setting signal to random number: ' + random);
 }).listen(process.env.PORT || 8000);
