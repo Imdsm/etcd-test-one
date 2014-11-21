@@ -1,5 +1,6 @@
 var http = require('http'),
-    etcd = new require('node-etcd')();
+    Etcd = new require('node-etcd'),
+    etcd = new Etcd('127.0.0.1', '4001');
 
 http.createServer(function(req, res) {
     var random = Math.floor((Math.random() * 1000) + 1);
